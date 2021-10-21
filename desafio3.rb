@@ -3,20 +3,21 @@ class Appointment
     @purpose = [] unless @purpose.nil?
     @hour = [] unless @hour.nil?
     @min= [] unless @min.nil?
-    def initialize(location, purpose, hour, min)
-        @location = location
-        @purpose = purpose
-        @hour = hour
-        @min = min
-    end
-    def to_s
-        "#{@location}, #{purpose}, #{hour}, #{min}"
-    end
+        def initialize(location, purpose, hour, min)
+            @location = location
+            @purpose = purpose
+            @hour = hour
+            @min = min
+        end
+        
+        def to_s
+            "#{@location}, #{purpose}, #{hour}, #{min}"
+        end
 end
 
 class DailyAppointment < Appointment
     def initialize(location, purpose, hour, min)
-    super(location, purpose, hour, min)
+        super(location, purpose, hour, min)
     end
 
     def occurs_on?(hour, min)
@@ -32,7 +33,7 @@ class MonthlyAppointment < Appointment
     @day = [] unless @day.nil?
     def initialize(location, purpose, hour, min, day)
         @day = day
-    super(location, purpose, hour, min)
+        super(location, purpose, hour, min)
     end
 
     def occurs_on?(day)
